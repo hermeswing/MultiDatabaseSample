@@ -1,0 +1,12 @@
+server:
+  port: 8090                                # 서버 포트 변경
+
+logging:
+  level:
+    root: warn
+    multi.database: debug
+
+spring:
+  profiles: local
+
+

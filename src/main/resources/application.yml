@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: local                       # 디폴트 환경
+  # DB 설정
+  mssql:
+    datasource:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:sqlserver://localhost:14333;databaseName=springboot
+      username: sa
+      password: 1234
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 3
+      maximum-pool-size: 10
+      pool-name: pool-mssql
+      # mapper.xml 위치 지정
+      # **은 하위 폴더 레벨에 상관없이 모든 경로를 뜻하며, *는 아무 이름이나 와도 된다는것을 뜻합니다.
+      mapper-locations: classpath:/mybatis/mapper/mssql/**/*.xml
+      # mapper.xml에서 resultType을 지정할 때 com.god.bo.test.vo.TestVo 대신 TestVo로 간략히 할 수 있다.
+      #type-aliases-package: com.god.bo.test.vo
+      mybatis-config: classpath:/mybatis/mybatis-config.xml
+  # DB 설정
+  second:
+    datasource:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:sqlserver://localhost:14333;databaseName=springboot
+      username: sa
+      password: 1234
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 3
+      maximum-pool-size: 10
+      pool-name: pool-mssql
+      # mapper.xml 위치 지정
+      # **은 하위 폴더 레벨에 상관없이 모든 경로를 뜻하며, *는 아무 이름이나 와도 된다는것을 뜻합니다.
+      mapper-locations: classpath:/mybatis/mapper/mssql/**/*.xml
+      # mapper.xml에서 resultType을 지정할 때 com.god.bo.test.vo.TestVo 대신 TestVo로 간략히 할 수 있다.
+      #type-aliases-package: com.god.bo.test.vo
+      mybatis-config: classpath:/mybatis/mybatis-config.xml
+
